@@ -132,9 +132,7 @@ CREATE TABLE horoscope (
 - [ ] Add REST API for mobile app integration
 - [ ] Multi-language support for predictions
 
-## License 📄
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Author 👨‍💻
 
