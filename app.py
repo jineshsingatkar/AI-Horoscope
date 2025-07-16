@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 from ai_generator import generate_horoscope
 from rashi_data import rashis
 from database import save_prediction, get_predictions, init_db
+from datetime import datetime
 import os
 
 app = Flask(__name__)
@@ -25,7 +26,10 @@ def horoscope(rashi_id):
     # Get Monthly Predictions
     predictions = get_predictions(rashi_id)
 
-    return render_template('horoscope.html', rashi=rashi, prediction=pred, predictions=predictions)
+    # Get current date for display
+    current_date = datetime.now().strftime("%B %d, %Y")
+
+    return render_template('horoscope.html', rashi=rashi, prediction=pred, predictions=predictions, current_date=current_date)
 
 if __name__ == '__main__':
     app.run(debug=True)

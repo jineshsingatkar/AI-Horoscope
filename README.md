@@ -6,9 +6,10 @@ An AI-powered horoscope generator web application that provides personalized dai
 
 - **AI-Generated Horoscopes**: Utilizes GPT-2 model for generating unique, personalized horoscope predictions
 - **Multi-language Support**: Displays zodiac signs in both English and Hindi
+- **Unicode Zodiac Icons**: Beautiful zodiac symbols using Unicode characters
 - **Daily Predictions**: Get fresh horoscope predictions every day
 - **Monthly History**: View your past 30 days of horoscope predictions
-- **Responsive Design**: Clean and modern web interface
+- **Responsive Design**: Modern gradient UI with smooth animations
 - **Database Storage**: Persistent storage of predictions using SQLite
 
 ## Tech Stack 🛠️

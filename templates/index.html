@@ -2,18 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Horoscope</title>
-  <script src="https://cdn.tailwindcss.com "></script>
+  <title>AI Horoscope - Daily Predictions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .zodiac-icon {
+      font-size: 2.5rem;
+      line-height: 1;
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+    .zodiac-card {
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+    }
+    .zodiac-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-center p-6 font-sans">
-  <h1 class="text-4xl font-bold mb-6">Your Daily Horoscope</h1>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
-    {% for rashi in rashis %}
-      <a href="/horoscope/{{ rashi.id }}" class="p-4 border rounded hover:bg-yellow-100 shadow transition duration-200">
-        <img src="{{ rashi.icon }}" alt="{{ rashi.name_en }}" class="w-12 h-12 mx-auto mb-2">
-        <p class="text-sm">{{ rashi.name_hi }}<br><span class="font-semibold">{{ rashi.name_en }}</span></p>
-      </a>
-    {% endfor %}
+<body class="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 min-h-screen p-6 font-sans">
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-5xl font-bold text-center text-white mb-2">🔮 AI Horoscope</h1>
+    <p class="text-center text-white/90 mb-8 text-lg">Discover your daily predictions powered by AI</p>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      {% for rashi in rashis %}
+        <a href="/horoscope/{{ rashi.id }}" class="zodiac-card p-6 rounded-xl text-center">
+          <span class="zodiac-icon">{{ rashi.icon }}</span>
+          <p class="text-sm font-medium">{{ rashi.name_hi }}</p>
+          <p class="text-xs opacity-90">{{ rashi.name_en }}</p>
+        </a>
+      {% endfor %}
+    </div>
+    
+    <div class="text-center mt-8">
+      <p class="text-white/80 text-sm">✨ Click on your zodiac sign to get your personalized horoscope ✨</p>
+    </div>
   </div>
 </body>
 </html>

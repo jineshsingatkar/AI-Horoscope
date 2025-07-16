@@ -2,19 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ rashi.name_hi }} - {{ rashi.name_en }}</title>
-  <script src="https://cdn.tailwindcss.com "></script>
+  <title>{{ rashi.name_hi }} - {{ rashi.name_en }} | AI Horoscope</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .zodiac-icon {
+      font-size: 4rem;
+      line-height: 1;
+      display: block;
+      margin: 1rem auto;
+    }
+    .prediction-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    .history-card {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+    }
+  </style>
 </head>
-<body class="bg-white p-6 max-w-2xl mx-auto font-sans">
-  <h1 class="text-3xl font-bold text-center">{{ rashi.name_hi }} ({{ rashi.name_en }})</h1>
-  <img src="{{ rashi.icon }}" alt="{{ rashi.name_en }}" class="w-20 h-20 my-4 mx-auto">
-  <p class="my-4 text-lg bg-yellow-50 p-4 rounded">{{ prediction }}</p>
+<body class="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 min-h-screen p-6 font-sans">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <a href="/" class="inline-block bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition mb-4">
+        ← Back to All Signs
+      </a>
+      <h1 class="text-4xl font-bold text-white mb-2">{{ rashi.name_hi }} ({{ rashi.name_en }})</h1>
+      <span class="zodiac-icon">{{ rashi.icon }}</span>
+    </div>
 
-  <h2 class="text-xl mt-6 mb-2">Monthly Record:</h2>
-  <ul class="list-disc ml-6 space-y-2">
-    {% for date, text in predictions.items() %}
-      <li><strong>{{ date }}</strong>: {{ text }}</li>
-    {% endfor %}
-  </ul>
+    <!-- Today's Prediction -->
+    <div class="prediction-card p-6 rounded-xl mb-6">
+      <h2 class="text-2xl font-bold mb-4 text-center">🌟 Today's Prediction</h2>
+      <p class="text-lg leading-relaxed">{{ prediction }}</p>
+      <div class="text-center mt-4">
+        <small class="opacity-80">Generated on {{ moment().format('MMMM Do, YYYY') }}</small>
+      </div>
+    </div>
+
+    <!-- Monthly History -->
+    {% if predictions %}
+    <div class="history-card p-6 rounded-xl">
+      <h2 class="text-2xl font-bold mb-4 text-center">📅 Monthly History</h2>
+      <div class="space-y-3 max-h-96 overflow-y-auto">
+        {% for date, text in predictions.items() %}
+          <div class="bg-white/10 p-3 rounded-lg">
+            <div class="font-semibold mb-1">{{ date }}</div>
+            <div class="text-sm opacity-90">{{ text }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Footer -->
+    <div class="text-center mt-8">
+      <p class="text-white/80 text-sm">✨ Powered by AI for personalized predictions ✨</p>
+    </div>
+  </div>
 </body>
 </html>

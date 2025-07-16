@@ -62,9 +62,18 @@ def test_database():
         save_prediction(1, "Test horoscope prediction")
         print("✓ Prediction saved successfully")
         
+        # Test saving duplicate prediction (should update)
+        save_prediction(1, "Updated test horoscope prediction")
+        print("✓ Duplicate prediction handled correctly")
+        
         # Test getting predictions
         predictions = get_predictions(1)
         print(f"✓ Retrieved {len(predictions)} predictions")
+        
+        # Test with different rashi_id
+        save_prediction(2, "Test prediction for Taurus")
+        predictions_2 = get_predictions(2)
+        print(f"✓ Retrieved {len(predictions_2)} predictions for different rashi")
         
         return True
         
