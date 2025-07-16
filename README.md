@@ -58,6 +58,30 @@ An AI-powered horoscope generator web application that provides personalized dai
 6. **Access the application**
    Open your browser and go to `http://localhost:5000`
 
+## Screenshots 📸
+
+### Homepage - Zodiac Sign Selection
+![Homepage Screenshot](screenshots/homepage.png)
+*Beautiful gradient interface displaying all 12 zodiac signs with Unicode symbols*
+
+### Horoscope Prediction Page
+![Horoscope Page Screenshot](screenshots/horoscope-page.png)
+*Personalized daily horoscope with AI-generated predictions and monthly history*
+
+### Responsive Design
+![Mobile View Screenshot](screenshots/mobile-view.png)
+*Fully responsive design that works seamlessly on all devices*
+
+### Monthly History
+![History Screenshot](screenshots/monthly-history.png)
+*Track your past predictions with beautifully formatted date entries*
+
+> **Note**: To add screenshots to your project:
+> 1. Create a `screenshots` folder in your project root
+> 2. Take screenshots of your running application
+> 3. Save them as `homepage.png`, `horoscope-page.png`, `mobile-view.png`, and `monthly-history.png`
+> 4. The screenshots will automatically appear in this README
+
 ## Usage 📖
 
 1. **Homepage**: Visit the main page to see all 12 zodiac signs
@@ -78,6 +102,12 @@ AI-Horoscope/
 ├── .gitignore            # Git ignore file
 ├── LICENSE               # MIT License file
 ├── horoscope.db          # SQLite database (auto-generated)
+├── screenshots/          # Application screenshots
+│   ├── README.md         # Screenshot guidelines
+│   ├── homepage.png      # Homepage screenshot
+│   ├── horoscope-page.png # Horoscope page screenshot
+│   ├── mobile-view.png   # Mobile view screenshot
+│   └── monthly-history.png # History screenshot
 ├── templates/
 │   ├── index.html        # Homepage template
 │   └── horoscope.html    # Horoscope display template
@@ -121,9 +151,12 @@ CREATE TABLE horoscope (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     rashi_id INTEGER,
     date TEXT,
-    prediction TEXT
+    prediction TEXT,
+    UNIQUE(rashi_id, date)
 );
 ```
+
+*Note: The unique constraint prevents duplicate predictions for the same zodiac sign on the same date.*
 
 ## Zodiac Signs Supported 🌟
 

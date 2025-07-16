@@ -57,5 +57,10 @@ instance/
 .env.test.local
 .env.production.local
 
+# Screenshots (optional - you can track these if desired)
+# screenshots/*.png
+# screenshots/*.jpg
+# screenshots/*.jpeg
+
 # Logs
 *.log

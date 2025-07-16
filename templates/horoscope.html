@@ -37,7 +37,7 @@
       <h2 class="text-2xl font-bold mb-4 text-center">🌟 Today's Prediction</h2>
       <p class="text-lg leading-relaxed">{{ prediction }}</p>
       <div class="text-center mt-4">
-        <small class="opacity-80">Generated on {{ moment().format('MMMM Do, YYYY') }}</small>
+        <small class="opacity-80">Generated on {{ current_date }}</small>
       </div>
     </div>
 
@@ -48,10 +48,22 @@
       <div class="space-y-3 max-h-96 overflow-y-auto">
         {% for date, text in predictions.items() %}
           <div class="bg-white/10 p-3 rounded-lg">
-            <div class="font-semibold mb-1">{{ date }}</div>
+            <div class="font-semibold mb-1">{{ date|format_date }}</div>
             <div class="text-sm opacity-90">{{ text }}</div>
           </div>
         {% endfor %}
+      </div>
+      {% if predictions|length == 0 %}
+        <div class="text-center opacity-80">
+          <p>No previous predictions found.</p>
+        </div>
+      {% endif %}
+    </div>
+    {% else %}
+    <div class="history-card p-6 rounded-xl">
+      <h2 class="text-2xl font-bold mb-4 text-center">📅 Monthly History</h2>
+      <div class="text-center opacity-80">
+        <p>No previous predictions found.</p>
       </div>
     </div>
     {% endif %}

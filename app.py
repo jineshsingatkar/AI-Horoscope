@@ -9,6 +9,16 @@ import os
 app = Flask(__name__)
 init_db()
 
+# Custom Jinja2 filter for date formatting
+@app.template_filter('format_date')
+def format_date(date_string):
+    """Format date string from YYYY-MM-DD to a more readable format"""
+    try:
+        date_obj = datetime.strptime(date_string, '%Y-%m-%d')
+        return date_obj.strftime('%B %d, %Y')
+    except:
+        return date_string
+
 @app.route('/')
 def index():
     return render_template('index.html', rashis=rashis)
@@ -33,5 +43,4 @@ def horoscope(rashi_id):
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
-    
+
