@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ rashi.name_hi }} - {{ rashi.name_en }}</title>
+  <script src="https://cdn.tailwindcss.com "></script>
+</head>
+<body class="bg-white p-6 max-w-2xl mx-auto font-sans">
+  <h1 class="text-3xl font-bold text-center">{{ rashi.name_hi }} ({{ rashi.name_en }})</h1>
+  <img src="{{ rashi.icon }}" alt="{{ rashi.name_en }}" class="w-20 h-20 my-4 mx-auto">
+  <p class="my-4 text-lg bg-yellow-50 p-4 rounded">{{ prediction }}</p>
+
+  <h2 class="text-xl mt-6 mb-2">Monthly Record:</h2>
+  <ul class="list-disc ml-6 space-y-2">
+    {% for date, text in predictions.items() %}
+      <li><strong>{{ date }}</strong>: {{ text }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
