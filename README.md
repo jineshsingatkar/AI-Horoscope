@@ -44,12 +44,17 @@ An AI-powered horoscope generator web application that provides personalized dai
    pip install -r requirements.txt
    ```
 
-4. **Run the application**
+4. **Test the setup (optional)**
+   ```bash
+   python test_setup.py
+   ```
+
+5. **Run the application**
    ```bash
    python app.py
    ```
 
-5. **Access the application**
+6. **Access the application**
    Open your browser and go to `http://localhost:5000`
 
 ## Usage 📖
@@ -68,9 +73,14 @@ AI-Horoscope/
 ├── database.py           # Database operations
 ├── rashi_data.py         # Zodiac sign data
 ├── requirements.txt      # Python dependencies
+├── test_setup.py         # Dependency testing script
+├── .gitignore            # Git ignore file
+├── LICENSE               # MIT License file
+├── horoscope.db          # SQLite database (auto-generated)
 ├── templates/
 │   ├── index.html        # Homepage template
 │   └── horoscope.html    # Horoscope display template
+├── __pycache__/          # Python cache files
 └── README.md            # Project documentation
 ```
 
@@ -84,6 +94,24 @@ AI-Horoscope/
 - **Flask (2.3.3)**: Web framework for Python
 - **Transformers (4.35.2)**: Hugging Face library for AI models
 - **PyTorch (2.1.0)**: Deep learning framework (required by transformers)
+
+## Troubleshooting 🔧
+
+### Common Issues
+
+1. **ModuleNotFoundError**: If you encounter import errors, ensure all dependencies are installed:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Database Issues**: If the database isn't working, delete `horoscope.db` and restart the application.
+
+3. **Model Download**: First run may take longer as GPT-2 model is downloaded automatically.
+
+4. **Port Already in Use**: If port 5000 is busy, modify the port in `app.py`:
+   ```python
+   app.run(debug=True, port=5001)
+   ```
 
 ## Database Schema 🗄️
 
@@ -131,14 +159,21 @@ CREATE TABLE horoscope (
 - [ ] Implement caching for better performance
 - [ ] Add REST API for mobile app integration
 - [ ] Multi-language support for predictions
+- [ ] Add horoscope sharing functionality
+- [ ] Implement admin panel for content management
+- [ ] Add dark/light theme toggle
+- [ ] Include astrological charts and visualizations
 
+## License 📄
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Author 👨‍💻
 
-**Jinesh Singatkar**
+### Jinesh Singatkar
+
 - GitHub: [@jineshsingatkar](https://github.com/jineshsingatkar)
-- Email: jineshsingatkar@gmail.com
+- Email: [jineshsingatkar@gmail.com](mailto:jineshsingatkar@gmail.com)
 
 ## Acknowledgments 🙏
 

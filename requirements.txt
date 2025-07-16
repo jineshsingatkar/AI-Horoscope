@@ -1,3 +1,31 @@
+# Web Framework
 flask==2.3.3
+Jinja2==3.1.2
+Werkzeug==2.3.7
+MarkupSafe==2.1.3
+itsdangerous==2.1.2
+click==8.1.7
+
+# AI/ML Libraries
 transformers==4.35.2
 torch==2.1.0
+tokenizers==0.15.0
+huggingface-hub==0.19.4
+safetensors==0.4.1
+
+# Data Processing
+numpy==1.24.3
+regex==2023.10.3
+
+# File Processing
+filelock==3.13.1
+requests==2.31.0
+tqdm==4.66.1
+packaging==23.2
+
+# Python Utilities
+typing-extensions==4.8.0
+sympy==1.12
+mpmath==1.3.0
+fsspec==2023.10.0
+networkx==3.2.1
